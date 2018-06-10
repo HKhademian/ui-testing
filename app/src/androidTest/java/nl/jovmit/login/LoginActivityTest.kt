@@ -7,8 +7,19 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
+import com.microsoft.appcenter.espresso.Factory
+import com.microsoft.appcenter.espresso.ReportHelper
+
 @RunWith(AndroidJUnit4::class)
 class LoginActivityTest {
+    @Rule
+    @JvmField
+    val reportHelper = Factory.getReportHelper()
+
+    @After
+    fun TearDown() {
+        reportHelper.label("Stopping login");
+    }
 
     @Rule
     @JvmField
